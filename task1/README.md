@@ -1,0 +1,1 @@
+link: [2025年全国大学生计算机系统能力大赛智能系统创新设计赛（小米杯）技术方案](https://mp.weixin.qq.com/s/lB4OxZ4kgOrqoGaekhSbmQ)
