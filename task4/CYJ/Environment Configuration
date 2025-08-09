@@ -1,0 +1,31 @@
+# 环境搭建
+
+## 因为我的仿真2D的环境是第一个周配置好的，时间有点久可能不是很全面，我当时配置的时候遇到了很多麻烦，都是通过问AI解决的。
+
+## 一、仿真2D是使用Ubuntu系统，在配置过程中需要下载很多依赖包和一些简单的工具。
+
+### 1、安装依赖库，依赖库不完整或者版本不匹配都会导致后续编译过程出现各种错误，建议安装最新版本
+
+#### 首先安装一些必要的编译工具和库文件，在终端执行以下命令：**sudo apt-get install build-essential libqt4-dev libglut-dev libssl-dev libboost-dev libboost-thread-dev libboost-regex-dev**，可能会出现报错，更新软件源，输入**sudo apt-get update**命令，更新完成后再重新安装。
+
+### 2、下载rcsserver和rcssmonitor
+
+#### 首先下载服务器源码，在终端中输入：​
+**git clone https://github.com/rcsoccersim/rcssserver.git​**
+
+然后下载监控器源码：​
+**git clone https://github.com/rcsoccersim/rcssmonitor.git**
+
+#### 然后就是进行编译安装了进入目录，然后进行配置安装和编译
+**./configure​
+make​
+sudo make install**
+在执行./configure时，可能会提示缺少某些依赖库，这时需要根据提示安装相应的依赖库，然后重新执行./configure。
+
+### 3、完成以上步骤之后，就可以测试环境是否配置成功了，先在一个终端上输入rcssserver，然后再打开另一个终端输入rcssmonitor，回车之后就会出现一个足球场界面，但此时只有足球场，并没有球员。
+
+## 二、球员，我负责的是Cyrus2DBase
+
+### 1、编译，终端输入：**cd ~/桌面/Cyrus2DBase-cyrus2d mkdir -p build && cd build     cmake ..      make -j$(nproc)**
+
+### 2、再开一个终端，输入 **./start.sh -t MyTeam**,然后按ctrl+k即可开始比赛，在足球场上可以看到球员与比分。
