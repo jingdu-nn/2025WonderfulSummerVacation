@@ -1,0 +1,23 @@
+struct robot_control_cmd_lcmt
+{
+    int8_t mode;
+    int8_t gait_id;
+    int8_t contact;
+    int8_t life_count;
+    double vel_des[3];
+    double rpy_des[3];
+    double pos_des[3];
+    double acc_des[6];
+    double ctrl_point[3];
+    double foot_pose[6];
+    double step_height[2];
+    int32_t value;
+    int32_t duration;
+    
+    // 额外字段用于复杂步态控制
+    double body_pos_des[6];
+    double weight[6];
+    int32_t use_mpc_traj;
+    double mu;
+    double landing_gain;
+} 
